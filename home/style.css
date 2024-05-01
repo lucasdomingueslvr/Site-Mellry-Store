@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    font-size: 62.5%;
+}
+
+main{
+    width: 100%;
+    display: flex;
+    margin: 0.3rem 0;
+}
+
+main img{
+    width: 50%;
+}
+
+.introductive-text{
+    background-color: rgba(128, 128, 128, 0.3);
+    width: 50%;
+    
+    padding: 6rem;
+    font-family: "Belgrano", serif;
+    color: #48392E;
+    text-align: center;
+}
+
+.introductive-text h2{
+    font-size: 4.5rem;
+    font-weight: 400;
+    padding: 1rem;
+}
+
+.introductive-text span{
+    font-size: 1.4rem;
+}
+
+.introductive-text p{
+    font-size: 2rem;
+    padding: 5rem 10rem;
+}
+
+button{
+    height: 6.8rem;
+    width: 21.6rem;
+    border-radius: 1.6rem;
+    background-color: rgba(128, 128, 128, 0.2);
+    border: 1px solid #48392E;
+}
+
+button a{
+    text-decoration: none;
+    color: #48392E;
+    font-family: "belgrano", sans-serif;
+}
