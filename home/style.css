@@ -12,10 +12,14 @@ main{
     width: 100%;
     display: flex;
     margin: 0.3rem 0;
+    height: 100%;
+
 }
 
 main img{
     width: 50%;
+    object-fit: cover;
+    display: block;
 }
 
 .introductive-text{
@@ -55,4 +59,8 @@ button a{
     text-decoration: none;
     color: #48392E;
     font-family: "belgrano", sans-serif;
+}
+
+@media  (max-width:1000px){
+    
 }

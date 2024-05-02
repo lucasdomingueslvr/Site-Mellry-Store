@@ -15,20 +15,17 @@
 
     <link rel="stylesheet" href="../base/style.css">
     <link rel="stylesheet" href="style.css">
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function(){
+            $("#header").load("../base/header.html");
+            $("#footer").load("../base/footer.html");
+        });
+    </script>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="header-nav1">
-                <img src="../assets/logo2.png" alt="logo da loja, uma bolsa com o nome Mellry">
-                <a href="#">Produtos</a>
-                <a href="#">Sobre Nós</a>
-            </div>
-            <div class="header-nav2">
-                <a href="#">Entrar ou criar conta</a>
-            </div>
-        </nav>
-    </header>
+    <header id="header"></header>
     <main>
         <div class="introductive-text">
             <h2>
@@ -44,28 +41,6 @@
         </div>
         <img src="../assets/Background_HomePage.png" alt="imagem com roupas em cabides">
     </main>
-    <footer>
-        <nav>
-            <div class="contato">
-                <p>Contatos </p>
-                <a href="mailto:mellrystore@gmail.com">mellrystore@gmail.com</a>
-                <a href="https://instagram.com/@mellry.store">@mellry.store</a>
-                <a href="#">+55 (34) 4002-8922</a>
-            </div>
-        
-            <div class="about">
-                <p>Sobre nós</p>
-                <a href="#">Sobre a Mellry Store</a>
-                <a href="#">Políticas da empresa</a>
-            </div>
-
-            <div class="formas-pagamento">
-                <p>Formas de pagamento</p>
-                <a href="#">Pix</a>
-                <a href="#">Cartão de crédito e débito</a>
-                <a href="#">Boleto Bancário</a>
-            </div>
-        </nav>
-    </footer>
+    <footer id="footer"></footer>
 </body>
 </html>

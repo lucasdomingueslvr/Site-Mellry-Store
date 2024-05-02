@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+:root{
+    font-size: 62.5%;
+
+    --main-color: #48392E;
+    --center-border-color: #48392e25;
+}
+
+.container{
+    padding: 5.8rem 9.6rem;
+    margin: 3rem 10rem;
+    border: 1px solid var(--main-color);
+    border-radius: 1.5rem;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+
+input::placeholder{
+    opacity: 0.2;
+}
+
+main, input, input::placeholder, button{
+    font-family: "belgrano", sans-serif;
+    font-size: 1.5rem;
+}
+
+form{
+    max-height: 50rem;
+}
+
+.create-account{
+    padding-left: 7.3rem;
+    margin-left: 7.3rem;
+    border-left: .4rem solid var(--center-border-color);
+}
+
+h2{
+    font-size: 3rem;
+}
+
+button a{
+    text-decoration: none;
+    color: white;
+}
+
+.input-wrapper label{
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.input-wrapper input{
+    margin-bottom: 1rem;
+}
+
+#forgot-password{
+    text-decoration: none;
+    color: #48392e80;
+    display: block;
+}
+
+button{
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 1.5rem;
+    padding: 2.5rem 7.5rem;
+    display: block;
+    margin-top: 5rem;
+}
+
+input{
+    width: 35rem;
+    height: 7.5rem;
+    border-radius: 1.5rem;
+    padding-left: 2rem;
+}
+
+@media  (max-width:1000px){
+    
+}

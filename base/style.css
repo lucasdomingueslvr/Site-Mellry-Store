@@ -16,8 +16,8 @@ body{
     flex-direction: column;
 }
 
-header{
-    width: 100;
+#header{
+    width: 100%;
     height: 12rem;
     border: none;
     box-shadow: .1rem .1rem 1rem gray;
@@ -25,10 +25,10 @@ header{
     display: flex;
     align-items: center;
     gap: 8rem;
-    padding-left: 3rem  ;
+    
 }
 
-header  nav{
+#header  nav{
     width: 100%;
     display: flex;
     font-size: 2rem;
@@ -42,9 +42,10 @@ header  nav{
 
     gap: 6rem;
     margin-left: 3rem;
+    padding-left: 3rem;
 }
 
-header img{
+#header img{
     height: 12rem;
 }
 
@@ -53,35 +54,40 @@ header img{
     padding-right: 5rem;
 }
 
-header nav a, footer nav a{
+#header nav a, #footer nav a{
     text-decoration: none;
     color: var(--base-font-color);
     font-weight: 600;
 }
 
-footer{
+#footer{
     margin-top: auto;
     min-height: 8rem;
     
     box-shadow: .1rem .1rem 1rem .1rem gray;
-    padding-top: 1rem;
+    
     font-family: "nunito", sans-serif;
 }   
 
-footer nav{
+#footer nav{
     display: flex;
     justify-content: center;
     font-size: 1.5rem;
     padding: 1.6rem;
-    gap: 25rem;
+    gap: 15rem;
+    padding-top: 1rem;
 }
 
-footer nav p{
+#footer nav p{
     font-size: 2rem;
 }
 
-footer nav div{
+#footer nav div{
     display: flex;
     flex-direction: column;
     gap: .5rem;
+}
+
+@media(max-width:1000){
+
 }
