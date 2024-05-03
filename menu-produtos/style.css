@@ -1,0 +1,96 @@
+:root{
+    --main-color: #48392E;
+    --btn-border: #ED7E8F;
+}
+
+main{
+    font-family: 'belgrano', sans-serif;
+}
+
+h2{
+    color: #48392E;
+    font-size: 3rem;
+    padding: 2rem 0 1rem 2rem;
+    margin-bottom: 1rem;
+}
+
+.produtos{
+    margin-left: 4rem;
+}
+
+.card{
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: .1rem .1rem 1rem gray;
+    border-radius: 0 0 1.5rem 1.5rem;
+}
+
+.card p{
+    width: 15rem; 
+    margin: 1rem 0;
+    font-size: 1.5rem;
+}
+
+.card span{
+    margin-bottom: 1rem;
+    color: #6D6D6D;
+    text-decoration: line-through;
+    width: 15rem; 
+
+}
+
+.card strong{
+    color: #3A8520;
+    font-size: 2rem;
+    width: 15rem; 
+
+}
+
+.card .img-produto{
+    width: 15rem;
+    margin-top: 1.5rem;
+}
+
+.last-card{
+    margin-bottom: 2rem;
+}
+
+button{
+    border: 1px solid var(--btn-border);
+    border-radius: .5rem;
+    background: white;
+
+    font-family: 'belgrano', sans-serif;
+
+    height: 3.5rem;
+    width: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-buy a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+}
+
+.btn-buy{
+    width: 10rem;
+}
+
+.buttons{
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+
+@media(min-width:1000px){
+    h2{
+        padding: 3rem 0 0 3rem;
+    }
+}
