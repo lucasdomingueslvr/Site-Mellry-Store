@@ -1,0 +1,53 @@
+main{
+    font-family: "Nunito", sans-serif;
+}
+
+h1{
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 3rem;
+}
+
+.paragraph{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.paragraph img{
+    height: 6rem;
+    margin: 0 2rem;
+}
+
+.paragraph2{
+    display: flex;
+    justify-content: center;
+}
+
+.paragraph2 img{
+    height: 6rem;
+}
+
+.paragraph2 p{
+    margin: 0 2rem;
+    color: #48392E;
+}
+
+@media(min-width: 1000px){
+    h1{
+        font-size: 4rem;
+    }
+
+    .paragraph img, .paragraph2 img{
+        height: 8rem;
+    }
+
+    .paragraph p, .paragraph2 p{
+        font-size: 2rem;
+    }
+
+    .paragraph, .paragraph2{
+        padding: 2rem 5rem;
+    }
+}
