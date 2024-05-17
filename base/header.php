@@ -17,11 +17,11 @@
         <nav>
             <img src="../assets/logo2.png" alt="logo da loja, uma bolsa com o nome Mellry">
             <div class="header-nav1">
-                <a href="../menu-produtos/index.html">Produtos</a>
-                <a href="../sobre/index.html">Sobre Nós</a>
+                <a href="../menu-produtos/index.php">Produtos</a>
+                <a href="../sobre/index.php">Sobre Nós</a>
             </div>
             <div class="header-nav2">
-                <a href="../login/index.html">Entrar ou criar conta</a>
+                <a href="../login/index.php">Entrar ou criar conta</a>
             </div>
         </nav>
     </header>

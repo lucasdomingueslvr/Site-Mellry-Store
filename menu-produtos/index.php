@@ -21,8 +21,8 @@
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script>
         $(function(){
-            $("#header").load("../base/header.html");
-            $("#footer").load("../base/footer.html");
+            $("#header").load("../base/header.php");
+            $("#footer").load("../base/footer.php");
         });
     </script>
 </head>
@@ -67,7 +67,7 @@
                 </strong>
                 <div class="buttons">
                     <button class="btn-buy">
-                        <a href="../produto/index.html">Comprar</a>
+                        <a href="../produto/index.php">Comprar</a>
                     </button>
                     <button>
                         <img src="../assets/car.png" alt="Botão para adicionar produto ao carrinho">

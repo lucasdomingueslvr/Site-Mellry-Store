@@ -15,8 +15,8 @@
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script>
         $(function(){
-            $("#header").load("../base/header.html");
-            $("#footer").load("../base/footer.html");
+            $("#header").load("../base/header.php");
+            $("#footer").load("../base/footer.php");
         });
     </script>
 </head>
