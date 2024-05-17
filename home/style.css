@@ -53,6 +53,14 @@ button{
     border-radius: 1.6rem;
     background-color: rgba(128, 128, 128, 0.2);
     border: 1px solid #48392E;
+
+    cursor: pointer;
+    transform: 1s;
+}
+
+button:hover{
+    background-image: rgba(128, 128, 128, 0.499);
+    scale: 1.1;
 }
 
 button a{
