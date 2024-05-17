@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Belgrano&display=swap" rel="stylesheet">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="shortcut icon" href="../assets/logo2.png" type="image/x-icon">
+    <link rel="stylesheet" href="../base/style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function(){
+            $("#header").load("../base/header.html");
+            $("#footer").load("../base/footer.html");
+        });
+    </script>
+</head>
+<body>
+    <header id="header"></header>
+    <main>
+        <div id="Carrinho">
+            <div class="cabecalho-carrinho">
+                <h2 class="title">Carrinho</h2>
+                
+                <button>
+                    <img src="../assets/Delete.png" alt="imagem de uma lixeira">
+                    REMOVER TODOS OS PRODUTOS
+                </button>
+            </div>
+
+            <div class="card">
+                <img class="img-produto" src="../assets/vestido.png" alt="">
+                <p>
+                    Vestido Feminino De Verão Com Estampa Tie Dye E Decote Nas Costas Para Férias
+                </p>
+                <span>
+                    R$150,00
+                </span>
+                <strong>
+                    R$119,00
+                </strong>
+                <button class="btn-remove">
+                    Remover
+                </button>
+        </div>
+
+        <div class="buy-all">
+            <div class="valor-total">
+                <h3>Valor total</h3>
+                <input id="valor" type="text" value="R$119,00" readonly>
+            </div>
+            <button class="btn-buy-all">
+                COMPRAR
+                <img src="../assets/Whatsapp.png" alt="logo do whatsapp">
+            </button>
+        </div>
+    </main>
+
+    <footer id="footer"></footer>
+</body>
+</html>

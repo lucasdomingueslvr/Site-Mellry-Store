@@ -1,0 +1,130 @@
+:root{
+    --borders: #ED7E8F;
+}
+
+.cabecalho-carrinho{
+    width: 100%;
+    display: flex;
+    gap: 70%;
+    margin-left: 4rem;
+    margin-top: 2rem;
+}
+
+body{
+    font-family: "Belgrano", sans-serif;
+}
+
+h2{
+    text-transform: uppercase;
+    text-shadow: black;
+    font-size: 2rem;
+}
+
+.card{
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: .1rem .1rem 1rem gray;
+    border-radius: 0 0 1.5rem 1.5rem;
+    margin-left: 4rem;
+}
+
+.card p{
+    width: 15rem; 
+    margin: 1rem 0;
+    font-size: 1.5rem;          
+}
+
+.card span{
+    margin-bottom: 1rem;
+    color: #6D6D6D;
+    text-decoration: line-through;
+    width: 15rem; 
+}
+
+.card strong{
+    color: #3A8520;
+    font-size: 2rem;
+    width: 15rem; 
+
+}
+
+.card .img-produto{
+    width: 15rem;
+    margin-top: 1.5rem;
+}
+
+.btn-remove{
+    width: 10rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;   
+    font-family: "Belgrano", sans-serif; 
+    font-size: 1.2rem;
+    padding: 1rem;
+    
+    border: 1px solid var(--borders);
+    border-radius: .5rem;
+    background: #FFFFFF;
+}
+
+.cabecalho-carrinho button{
+    background: white;
+    border: 1px solid red;
+    border-radius: 1rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 1rem;
+    gap: 1rem;
+    
+    color: red;
+    font-size: 1.6rem;
+    font-family: "Belgrano", sans-serif;
+}
+
+.buy-all{
+    margin: 3rem auto 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 4rem;
+}
+
+#valor{
+    border: 1px solid var(--borders);
+    border-radius: 1rem;
+    background: #FFFFFF;
+
+    padding: 1rem;
+    color: #48392E;
+    width: 14rem;
+}
+
+.btn-buy-all{
+    color: #4AB542;
+    display: flex;
+    gap: 1rem;
+    border: 1px solid #4AB542;
+
+    height: 3.7rem;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+
+    background-color: white;
+    border-radius: 1rem;
+}
+
+.valor-total{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.btn-buy-all:hover{
+    cursor: pointer;
+}
