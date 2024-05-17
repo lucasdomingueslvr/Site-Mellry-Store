@@ -1,3 +1,9 @@
+<?php   
+
+    include_once('../Back/config.php');
+
+    
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

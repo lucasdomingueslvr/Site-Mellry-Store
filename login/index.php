@@ -63,7 +63,7 @@
             <div class="create-account">
                 <h2>Quero criar uma conta</h2>
                 <button>
-                    <a href="../cadastro/index.html">CRIAR</a>
+                    <a href="../cadastro/index.php">CRIAR</a>
                 </button>
             </div>
         </div>
