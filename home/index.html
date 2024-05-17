@@ -38,7 +38,7 @@
             <p>
                 Descubra o seu estilo único e deslumbre-se com as últimas tendências na Mellry Store. Explore nossa coleção agora e encontre a peça perfeita para expressar sua verdadeira essência.
             </p>
-            <button><a href="">CONFIRA JÁ</a></button>
+            <button><a href="../menu-produtos/index.html    ">CONFIRA JÁ</a></button>
         </div>
         <img src="../assets/Background_HomePage.png" alt="imagem com roupas em cabides">
     </main>
