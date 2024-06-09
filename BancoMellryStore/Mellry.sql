@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
--- Host: localhost    Database: bancomelrystore
+-- Host: localhost    Database: bdmelrystore
 -- ------------------------------------------------------
 -- Server version	8.0.35
 
@@ -83,7 +83,6 @@ CREATE TABLE `tab_camiseta` (
   `valor` float NOT NULL,
   `promocao` float NOT NULL,
   `id_tamanho` bigint NOT NULL,
-  `imagem` mediumblob,
   PRIMARY KEY (`id_camiseta`),
   KEY `tamanho_tab_camiseta_fk` (`id_tamanho`),
   CONSTRAINT `tamanho_tab_camiseta_fk` FOREIGN KEY (`id_tamanho`) REFERENCES `tamanho` (`id_tamanho`)
@@ -146,7 +145,6 @@ CREATE TABLE `tab_modaintima` (
   `nomeproduto` varchar(50) NOT NULL,
   `valor` float NOT NULL,
   `promocao` float NOT NULL,
-  `imagem` mediumblob,
   PRIMARY KEY (`id_modaintima`),
   KEY `tamanho_tab_modaintima_fk` (`id_tamanho`),
   CONSTRAINT `tamanho_tab_modaintima_fk` FOREIGN KEY (`id_tamanho`) REFERENCES `tamanho` (`id_tamanho`)
@@ -175,7 +173,6 @@ CREATE TABLE `tab_shorts` (
   `nomeproduto` varchar(50) NOT NULL,
   `valor` float NOT NULL,
   `id_tamanho` bigint NOT NULL,
-  `imagem` mediumblob,
   PRIMARY KEY (`id_shorts`),
   KEY `tamanho_tab_shorts_fk` (`id_tamanho`),
   CONSTRAINT `tamanho_tab_shorts_fk` FOREIGN KEY (`id_tamanho`) REFERENCES `tamanho` (`id_tamanho`)
@@ -204,7 +201,6 @@ CREATE TABLE `tab_vestidos` (
   `promocao` float NOT NULL,
   `nomeproduto` varchar(50) NOT NULL,
   `id_tamanho` bigint NOT NULL,
-  `imagem` mediumblob,
   PRIMARY KEY (`id_vestidos`),
   KEY `tamanho_tab_vestidos_fk` (`id_tamanho`),
   CONSTRAINT `tamanho_tab_vestidos_fk` FOREIGN KEY (`id_tamanho`) REFERENCES `tamanho` (`id_tamanho`)
@@ -252,4 +248,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-09 17:24:54
+-- Dump completed on 2024-06-09 17:32:10
