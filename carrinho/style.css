@@ -5,7 +5,7 @@
 .cabecalho-carrinho{
     width: 100%;
     display: flex;
-    gap: 70%;
+    gap: 60%;
     margin-left: 4rem;
     margin-top: 2rem;
 }

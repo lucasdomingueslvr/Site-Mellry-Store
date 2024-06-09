@@ -1,8 +1,6 @@
-CREATE DATABASE  IF NOT EXISTS `mellrystore` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `mellrystore`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
--- Host: localhost    Database: mellrystore
+-- Host: localhost    Database: bancomelrystore
 -- ------------------------------------------------------
 -- Server version	8.0.35
 
@@ -30,9 +28,9 @@ CREATE TABLE `cadastro` (
   `dtnascimento` date NOT NULL,
   `email` varchar(50) NOT NULL,
   `senha` varchar(50) NOT NULL,
-  `telefone` varchar(10) NOT NULL,
+  `telefone` varchar(11) NOT NULL,
   PRIMARY KEY (`id_cliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +39,6 @@ CREATE TABLE `cadastro` (
 
 LOCK TABLES `cadastro` WRITE;
 /*!40000 ALTER TABLE `cadastro` DISABLE KEYS */;
-INSERT INTO `cadastro` VALUES (1,'Marcos','2003-04-25','marcos@gmail.com','marcos123','998576241');
 /*!40000 ALTER TABLE `cadastro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,14 +51,14 @@ DROP TABLE IF EXISTS `carrinho`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `carrinho` (
   `id_carrinho` bigint NOT NULL AUTO_INCREMENT,
-  `id_produto` bigint NOT NULL,
   `id_cliente` bigint NOT NULL,
+  `nomeproduto` varchar(50) NOT NULL,
+  `valor` float NOT NULL,
+  `promocao` float NOT NULL,
   PRIMARY KEY (`id_carrinho`),
-  KEY `produto_carrinho_fk` (`id_produto`),
   KEY `cadastro_carrinho_fk` (`id_cliente`),
-  CONSTRAINT `cadastro_carrinho_fk` FOREIGN KEY (`id_cliente`) REFERENCES `cadastro` (`id_cliente`),
-  CONSTRAINT `produto_carrinho_fk` FOREIGN KEY (`id_produto`) REFERENCES `produto` (`id_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+  CONSTRAINT `cadastro_carrinho_fk` FOREIGN KEY (`id_cliente`) REFERENCES `cadastro` (`id_cliente`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,37 +67,157 @@ CREATE TABLE `carrinho` (
 
 LOCK TABLES `carrinho` WRITE;
 /*!40000 ALTER TABLE `carrinho` DISABLE KEYS */;
-INSERT INTO `carrinho` VALUES (1,1,1);
 /*!40000 ALTER TABLE `carrinho` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `produto`
+-- Table structure for table `tab_camiseta`
 --
 
-DROP TABLE IF EXISTS `produto`;
+DROP TABLE IF EXISTS `tab_camiseta`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `produto` (
-  `id_produto` bigint NOT NULL AUTO_INCREMENT,
-  `descricao` varchar(100) NOT NULL,
+CREATE TABLE `tab_camiseta` (
+  `id_camiseta` bigint NOT NULL AUTO_INCREMENT,
+  `nomeproduto` varchar(50) NOT NULL,
   `valor` float NOT NULL,
+  `promocao` float NOT NULL,
   `id_tamanho` bigint NOT NULL,
-  `estoque` decimal(10,0) NOT NULL,
-  PRIMARY KEY (`id_produto`),
-  KEY `tamanho_produto_fk` (`id_tamanho`),
-  CONSTRAINT `tamanho_produto_fk` FOREIGN KEY (`id_tamanho`) REFERENCES `tamanho` (`id_tamanho`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+  `imagem` mediumblob,
+  PRIMARY KEY (`id_camiseta`),
+  KEY `tamanho_tab_camiseta_fk` (`id_tamanho`),
+  CONSTRAINT `tamanho_tab_camiseta_fk` FOREIGN KEY (`id_tamanho`) REFERENCES `tamanho` (`id_tamanho`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `produto`
+-- Dumping data for table `tab_camiseta`
 --
 
-LOCK TABLES `produto` WRITE;
-/*!40000 ALTER TABLE `produto` DISABLE KEYS */;
-INSERT INTO `produto` VALUES (1,'vestido branco',65,1,5);
-/*!40000 ALTER TABLE `produto` ENABLE KEYS */;
+LOCK TABLES `tab_camiseta` WRITE;
+/*!40000 ALTER TABLE `tab_camiseta` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tab_camiseta` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tab_categoria`
+--
+
+DROP TABLE IF EXISTS `tab_categoria`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tab_categoria` (
+  `id_categoria` bigint NOT NULL,
+  `id_vestidos` bigint NOT NULL,
+  `id_shorts` bigint NOT NULL,
+  `id_modaintima` bigint NOT NULL,
+  `id_camiseta` bigint NOT NULL,
+  PRIMARY KEY (`id_categoria`),
+  KEY `tab_modaintima_tab_categoria_fk` (`id_modaintima`),
+  KEY `tab_shorts_tab_categoria_fk` (`id_shorts`),
+  KEY `tab_vestidos_tab_categoria_fk` (`id_vestidos`),
+  KEY `tab_camiseta_tab_categoria_fk` (`id_camiseta`),
+  CONSTRAINT `tab_camiseta_tab_categoria_fk` FOREIGN KEY (`id_camiseta`) REFERENCES `tab_camiseta` (`id_camiseta`),
+  CONSTRAINT `tab_modaintima_tab_categoria_fk` FOREIGN KEY (`id_modaintima`) REFERENCES `tab_modaintima` (`id_modaintima`),
+  CONSTRAINT `tab_shorts_tab_categoria_fk` FOREIGN KEY (`id_shorts`) REFERENCES `tab_shorts` (`id_shorts`),
+  CONSTRAINT `tab_vestidos_tab_categoria_fk` FOREIGN KEY (`id_vestidos`) REFERENCES `tab_vestidos` (`id_vestidos`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tab_categoria`
+--
+
+LOCK TABLES `tab_categoria` WRITE;
+/*!40000 ALTER TABLE `tab_categoria` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tab_categoria` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tab_modaintima`
+--
+
+DROP TABLE IF EXISTS `tab_modaintima`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tab_modaintima` (
+  `id_modaintima` bigint NOT NULL AUTO_INCREMENT,
+  `id_tamanho` bigint NOT NULL,
+  `nomeproduto` varchar(50) NOT NULL,
+  `valor` float NOT NULL,
+  `promocao` float NOT NULL,
+  `imagem` mediumblob,
+  PRIMARY KEY (`id_modaintima`),
+  KEY `tamanho_tab_modaintima_fk` (`id_tamanho`),
+  CONSTRAINT `tamanho_tab_modaintima_fk` FOREIGN KEY (`id_tamanho`) REFERENCES `tamanho` (`id_tamanho`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tab_modaintima`
+--
+
+LOCK TABLES `tab_modaintima` WRITE;
+/*!40000 ALTER TABLE `tab_modaintima` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tab_modaintima` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tab_shorts`
+--
+
+DROP TABLE IF EXISTS `tab_shorts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tab_shorts` (
+  `id_shorts` bigint NOT NULL AUTO_INCREMENT,
+  `promocao` float NOT NULL,
+  `nomeproduto` varchar(50) NOT NULL,
+  `valor` float NOT NULL,
+  `id_tamanho` bigint NOT NULL,
+  `imagem` mediumblob,
+  PRIMARY KEY (`id_shorts`),
+  KEY `tamanho_tab_shorts_fk` (`id_tamanho`),
+  CONSTRAINT `tamanho_tab_shorts_fk` FOREIGN KEY (`id_tamanho`) REFERENCES `tamanho` (`id_tamanho`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tab_shorts`
+--
+
+LOCK TABLES `tab_shorts` WRITE;
+/*!40000 ALTER TABLE `tab_shorts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tab_shorts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tab_vestidos`
+--
+
+DROP TABLE IF EXISTS `tab_vestidos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tab_vestidos` (
+  `id_vestidos` bigint NOT NULL AUTO_INCREMENT,
+  `valor` float NOT NULL,
+  `promocao` float NOT NULL,
+  `nomeproduto` varchar(50) NOT NULL,
+  `id_tamanho` bigint NOT NULL,
+  `imagem` mediumblob,
+  PRIMARY KEY (`id_vestidos`),
+  KEY `tamanho_tab_vestidos_fk` (`id_tamanho`),
+  CONSTRAINT `tamanho_tab_vestidos_fk` FOREIGN KEY (`id_tamanho`) REFERENCES `tamanho` (`id_tamanho`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tab_vestidos`
+--
+
+LOCK TABLES `tab_vestidos` WRITE;
+/*!40000 ALTER TABLE `tab_vestidos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tab_vestidos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -114,7 +231,7 @@ CREATE TABLE `tamanho` (
   `id_tamanho` bigint NOT NULL AUTO_INCREMENT,
   `descricao` varchar(3) NOT NULL,
   PRIMARY KEY (`id_tamanho`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,7 +240,6 @@ CREATE TABLE `tamanho` (
 
 LOCK TABLES `tamanho` WRITE;
 /*!40000 ALTER TABLE `tamanho` DISABLE KEYS */;
-INSERT INTO `tamanho` VALUES (1,'P'),(2,'M'),(3,'G'),(4,'GG');
 /*!40000 ALTER TABLE `tamanho` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -136,4 +252,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-28 14:39:32
+-- Dump completed on 2024-06-09 17:13:54
