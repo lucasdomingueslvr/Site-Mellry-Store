@@ -74,7 +74,7 @@ button{
     border: none;
 }
 
-input{
+input, option{
     width: 35rem;
     height: 7.5rem;
 

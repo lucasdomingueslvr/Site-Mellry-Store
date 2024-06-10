@@ -15,7 +15,7 @@
 <body>
     <header id="header">
         <nav>
-            <img src="../assets/logo2.png" alt="logo da loja, uma bolsa com o nome Mellry">
+            <a href="../home/index.php"><img src="../assets/logo2.png" alt="logo da loja, uma bolsa com o nome Mellry"></a>
             <div class="header-nav1">
                 <a href="../menu-produtos/index.php">Produtos</a>
                 <a href="../sobre/index.php">Sobre Nós</a>

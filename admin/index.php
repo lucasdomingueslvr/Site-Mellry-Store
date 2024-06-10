@@ -67,8 +67,14 @@ if (isset($_POST['submit'])) {
                 <input type="text" id="tamanho" name="tamanho" placeholder="Digite o tamanho" required>
             </div>
             <div class="input-wrapper">
-                <label for="estoque">Estoque <span>*</span></label>
-                <input type="number" id="estoque" name="estoque" placeholder="Digite a quantidade em estoque" required>
+                <label for="categoria">Categoria <span>*</span></label>
+                <select name="categoria" id="categoria" required>
+                    <option value="" disabled selected>Selecione a categoria</option>
+                    <option value=1>Vestido</option>
+                    <option value=2>Camiseta</option>
+                    <option value=3>Shorts</option>
+                    <option value=4>Moda Íntima</option>
+                </select>
             </div>
             <div class="input-wrapper">
                 <label for="imagem">Imagem <span>*</span></label>
