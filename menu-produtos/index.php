@@ -45,7 +45,7 @@ $result = $conexao->query($sql);
                         echo '<span>R$' . number_format($row["valor"], 2, ',', '.') . '</span>';
                         echo '<strong>R$' . number_format($row["promocao"], 2, ',', '.') . '</strong>';
                         echo '<div class="buttons">';
-                        echo '<button class="btn-buy"><a href="">Comprar</a></button>';
+                        echo '<button class="btn-buy"><a href="../details/product_details.php?id=' . $row["id_vestidos"] . '">Comprar</a></button>';
                         echo '</div>';
                         echo '</div>';
                     }
