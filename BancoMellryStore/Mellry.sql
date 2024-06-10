@@ -18,6 +18,24 @@ USE `bdmellrystore`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `cadastro`
+--
+
+DROP TABLE IF EXISTS `cadastro`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cadastro` (
+  `id_cliente` bigint NOT NULL AUTO_INCREMENT,
+  `nome` char(50) NOT NULL,
+  `dtnascimento` date NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `senha` varchar(50) NOT NULL,
+  `telefone` varchar(11) NOT NULL,
+  PRIMARY KEY (`id_cliente`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `cadastro`
 --
 
@@ -26,6 +44,25 @@ LOCK TABLES `cadastro` WRITE;
 INSERT INTO `cadastro` VALUES (1,'campo','2024-06-26','kauamatheus920@gmail.com','123456','34991211727'),(2,'campo','2024-06-26','kauamatheus920@gmail.com','123456','34991211727'),(3,'campo','2024-06-26','kauamatheus920@gmail.com','123456','34991211727'),(4,'campo','2024-06-26','kauamatheus920@gmail.com','123456','34991211727'),(5,'campo','2024-06-26','kauamatheus920@gmail.com','123456','34991211727'),(6,'campo','2024-06-26','kauamatheus920@gmail.com','123456','34991211727'),(7,'campo','2024-06-26','kauamatheus920@gmail.com','123456','34991211727'),(8,'campo','2024-06-26','kauamatheus920@gmail.com','123456','34991211727'),(9,'campo','2024-06-26','kauamatheus920@gmail.com','123456','34991211727'),(10,'campo','2024-06-26','kauamatheus920@gmail.com','123456','34991211727'),(11,'campo','2024-06-26','kauamatheus920@gmail.com','123456','34991211727'),(12,'campo','2024-06-26','kauamatheus920@gmail.com','123456','34991211727'),(13,'campo','2024-06-26','kauamatheus920@gmail.com','123456','34991211727');
 /*!40000 ALTER TABLE `cadastro` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `carrinho`
+--
+
+DROP TABLE IF EXISTS `carrinho`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `carrinho` (
+  `id_carrinho` bigint NOT NULL AUTO_INCREMENT,
+  `id_cliente` bigint NOT NULL,
+  `nomeproduto` varchar(50) NOT NULL,
+  `valor` float NOT NULL,
+  `promocao` float NOT NULL,
+  PRIMARY KEY (`id_carrinho`),
+  KEY `cadastro_carrinho_fk` (`id_cliente`),
+  CONSTRAINT `cadastro_carrinho_fk` FOREIGN KEY (`id_cliente`) REFERENCES `cadastro` (`id_cliente`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `carrinho`
@@ -37,6 +74,24 @@ LOCK TABLES `carrinho` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tab_camiseta`
+--
+
+DROP TABLE IF EXISTS `tab_camiseta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tab_camiseta` (
+  `id_camiseta` bigint NOT NULL AUTO_INCREMENT,
+  `nomeproduto` varchar(50) NOT NULL,
+  `valor` float NOT NULL,
+  `promocao` float NOT NULL,
+  `tamanho` varchar(10) NOT NULL,
+  `imagem` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_camiseta`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `tab_camiseta`
 --
 
@@ -44,6 +99,24 @@ LOCK TABLES `tab_camiseta` WRITE;
 /*!40000 ALTER TABLE `tab_camiseta` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tab_camiseta` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `tab_modaintima`
+--
+
+DROP TABLE IF EXISTS `tab_modaintima`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tab_modaintima` (
+  `id_modaintima` bigint NOT NULL AUTO_INCREMENT,
+  `nomeproduto` varchar(50) NOT NULL,
+  `valor` float NOT NULL,
+  `promocao` float NOT NULL,
+  `tamanho` varchar(10) NOT NULL,
+  `imagem` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_modaintima`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `tab_modaintima`
@@ -55,6 +128,24 @@ LOCK TABLES `tab_modaintima` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tab_shorts`
+--
+
+DROP TABLE IF EXISTS `tab_shorts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tab_shorts` (
+  `id_shorts` bigint NOT NULL AUTO_INCREMENT,
+  `nomeproduto` varchar(50) NOT NULL,
+  `valor` float NOT NULL,
+  `promocao` float NOT NULL,
+  `tamanho` varchar(10) NOT NULL,
+  `imagem` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_shorts`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `tab_shorts`
 --
 
@@ -62,6 +153,24 @@ LOCK TABLES `tab_shorts` WRITE;
 /*!40000 ALTER TABLE `tab_shorts` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tab_shorts` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `tab_vestidos`
+--
+
+DROP TABLE IF EXISTS `tab_vestidos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tab_vestidos` (
+  `id_vestidos` bigint NOT NULL AUTO_INCREMENT,
+  `valor` float NOT NULL,
+  `promocao` float NOT NULL,
+  `nomeproduto` varchar(50) NOT NULL,
+  `tamanho` varchar(10) NOT NULL,
+  `imagem` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_vestidos`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `tab_vestidos`
@@ -82,4 +191,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-10 15:39:58
+-- Dump completed on 2024-06-10 15:45:16
