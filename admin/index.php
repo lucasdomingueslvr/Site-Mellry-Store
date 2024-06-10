@@ -111,6 +111,5 @@ if (isset($_POST['submit'])) {
             <button type="submit" name="submit">Enviar</button>
         </form>
     </main>
-    <footer id="footer"></footer>
 </body>
 </html>
