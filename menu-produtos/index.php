@@ -34,24 +34,26 @@ $result = $conexao->query($sql);
     <main>
         <div class="produtos">
             <h2>Vestidos</h2>
-            <?php
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo '<div class="card">';
-                    echo '<img class="img-produto" src="' . $row["imagem"] . '" alt="Imagem do Produto">';
-                    echo '<p>' . $row["nomeproduto"] . '</p>';
-                    echo '<p>Tamanho: ' . $row["tamanho"] . '</p>';
-                    echo '<span>R$' . number_format($row["valor"], 2, ',', '.') . '</span>';
-                    echo '<strong>R$' . number_format($row["promocao"], 2, ',', '.') . '</strong>';
-                    echo '<div class="buttons">';
-                    echo '<button class="btn-buy"><a href="">Comprar</a></button>';
-                    echo '</div>';
-                    echo '</div>';
+            <div class="container">
+                <?php
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo '<div class="card">';
+                        echo '<img class="img-produto" src="' . $row["imagem"] . '" alt="Imagem do Produto">';
+                        echo '<p>' . $row["nomeproduto"] . '</p>';
+                        echo '<p>Tamanho: ' . $row["tamanho"] . '</p>';
+                        echo '<span>R$' . number_format($row["valor"], 2, ',', '.') . '</span>';
+                        echo '<strong>R$' . number_format($row["promocao"], 2, ',', '.') . '</strong>';
+                        echo '<div class="buttons">';
+                        echo '<button class="btn-buy"><a href="">Comprar</a></button>';
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                } else {
+                    echo "Nenhum produto encontrado.";
                 }
-            } else {
-                echo "Nenhum produto encontrado.";
-            }
-            ?>
+                ?>
+            </div>
         </div>
         <!-- Outras categorias aqui -->
     </main>
