@@ -1,14 +1,16 @@
-<?php   
+<?php
+include_once('../Back/config.php');
 
-    include_once('../Back/config.php');
+$sql = "SELECT id_vestidos, valor, promocao, nomeproduto, tamanho, imagem FROM tab_vestidos";
+$result = $conexao->query($sql);
 
-    
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Belgrano&display=swap" rel="stylesheet">
 
     <meta charset="UTF-8">
@@ -20,108 +22,40 @@
     <link rel="stylesheet" href="style.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script>
-        $(function(){
+        $(function() {
             $("#header").load("../base/header.php");
             $("#footer").load("../base/footer.php");
         });
     </script>
 </head>
+
 <body>
     <header id="header"></header>
     <main>
         <div class="produtos">
             <h2>Vestidos</h2>
-            <div class="card">
-                <img class="img-produto" src="../assets/vestido.png" alt="">
-                <p>
-                    Vestido Feminino De Verão Com Estampa Tie Dye E Decote Nas Costas Para Férias
-                </p>
-                <span>
-                    R$150,00
-                </span>
-                <strong>
-                    R$119,00
-                </strong>
-                <div class="buttons">
-                    <button class="btn-buy">
-                        <a href="">Comprar</a>
-                    </button>
-                    <button>
-                        <img src="../assets/car.png" alt="Botão para adicionar produto ao carrinho">
-                    </button>
-                </div>
-            </div>
+            <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<div class="card">';
+                    echo '<img class="img-produto" src="' . $row["imagem"] . '" alt="Imagem do Produto">';
+                    echo '<p>' . $row["nomeproduto"] . '</p>';
+                    echo '<p>Tamanho: ' . $row["tamanho"] . '</p>';
+                    echo '<span>R$' . number_format($row["valor"], 2, ',', '.') . '</span>';
+                    echo '<strong>R$' . number_format($row["promocao"], 2, ',', '.') . '</strong>';
+                    echo '<div class="buttons">';
+                    echo '<button class="btn-buy"><a href="">Comprar</a></button>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+            } else {
+                echo "Nenhum produto encontrado.";
+            }
+            ?>
         </div>
-        <div class="produtos">
-            <h2>Camisetas</h2>
-            <div class="card">
-                <img class="img-produto" src="../assets/camisa.png" alt="">
-                <p>
-                    Zara - Camiseta Básica De Algodão - Preto - Mulher
-                </p>
-                <span>
-                    R$79,99
-                </span>
-                <strong>
-                    R$69,99
-                </strong>
-                <div class="buttons">
-                    <button class="btn-buy">
-                        <a href="../produto/index.php">Comprar</a>
-                    </button>
-                    <button>
-                        <img src="../assets/car.png" alt="Botão para adicionar produto ao carrinho">
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="produtos">
-            <h2>Shorts</h2>
-            <div class="card">
-                <img class="img-produto" src="../assets/shorts.png" alt="">
-                <p>
-                    Short Baggy Jeans Com Bolso Carpinteiro E Cós Elástico Azul
-                </p>
-                <span>
-                    R$159,00
-                </span>
-                <strong>
-                    R$119,90
-                </strong>
-                <div class="buttons">
-                    <button class="btn-buy">
-                        <a href="">Comprar</a>
-                    </button>
-                    <button>
-                        <img src="../assets/car.png" alt="Botão para adicionar produto ao carrinho">
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="produtos">
-            <h2>Moda Íntima</h2>
-            <div class="card last-card">
-                <img class="img-produto" src="../assets/intima.png" alt="">
-                <p>
-                    Conjunto de Calcinha e Sutiã Confort Plus
-                </p>
-                <span>
-                    R$159,90
-                </span>
-                <strong>
-                    R$97,90
-                </strong>
-                <div class="buttons">
-                    <button class="btn-buy">
-                        <a href="">Comprar</a>
-                    </button>
-                    <button>
-                        <img src="../assets/car.png" alt="Botão para adicionar produto ao carrinho">
-                    </button>
-                </div>
-            </div>
-        </div>
+        <!-- Outras categorias aqui -->
     </main>
     <footer id="footer"></footer>
 </body>
+
 </html>

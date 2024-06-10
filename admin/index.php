@@ -6,23 +6,61 @@ if (isset($_POST['submit'])) {
     $valor = mysqli_real_escape_string($conexao, $_POST['valor']);
     $promocao = mysqli_real_escape_string($conexao, $_POST['promocao']);
     $tamanho = mysqli_real_escape_string($conexao, $_POST['tamanho']);
-    $estoque = mysqli_real_escape_string($conexao, $_POST['estoque']);
-    $imagem = $_FILES['imagem']['tmp_name'];
+    $imagem = $_FILES['imagem']['name'];
+    $target_dir = "../uploads/";
+    $target_file = $target_dir . basename($imagem);
+    $uploadOk = 1;
 
-    // Ler o conteúdo da imagem em binário
-    $imgContent = addslashes(file_get_contents($imagem));
-
-    // Inserir os dados no banco de dados
-    $sql = "INSERT INTO produto (nomeProduto, valor, promocao, id_tamanho, estoque, imagem) VALUES ('$nome', '$valor', '$promocao', '$tamanho', '$estoque', '$imgContent')";
-
-    if ($conexao->query($sql) === TRUE) {
-        echo "Dados inseridos com sucesso!";
+    // Verificar se o arquivo é uma imagem
+    $check = getimagesize($_FILES['imagem']['tmp_name']);
+    if($check !== false) {
+        $uploadOk = 1;
     } else {
-        echo "Erro ao inserir dados: " . $conexao->error;
+        echo "O arquivo não é uma imagem.";
+        $uploadOk = 0;
+    }
+
+    // Verificar se o arquivo já existe
+    if (file_exists($target_file)) {
+        echo "Desculpe, o arquivo já existe.";
+        $uploadOk = 0;
+    }
+
+    // Verificar o tamanho do arquivo
+    if ($_FILES['imagem']['size'] > 500000) {
+        echo "Desculpe, o seu arquivo é muito grande.";
+        $uploadOk = 0;
+    }
+
+    // Permitir apenas certos formatos de arquivo
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+        echo "Desculpe, apenas arquivos JPG, JPEG, PNG & GIF são permitidos.";
+        $uploadOk = 0;
+    }
+
+    // Verificar se $uploadOk é 0 por algum erro
+    if ($uploadOk == 0) {
+        echo "Desculpe, seu arquivo não foi carregado.";
+    // Tentar carregar o arquivo
+    } else {
+        if (move_uploaded_file($_FILES['imagem']['tmp_name'], $target_file)) {
+            echo "O arquivo ". htmlspecialchars(basename($_FILES['imagem']['name'])) . " foi carregado.";
+
+            // Inserir os dados no banco de dados
+            $sql = "INSERT INTO tab_vestidos (nomeproduto, valor, promocao, tamanho, imagem) VALUES ('$nome', '$valor', '$promocao', '$tamanho', '$target_file')";
+
+            if ($conexao->query($sql) === TRUE) {
+                echo "Dados inseridos com sucesso!";
+            } else {
+                echo "Erro ao inserir dados: " . $conexao->error;
+            }
+        } else {
+            echo "Desculpe, houve um erro ao carregar seu arquivo.";
+        }
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -59,7 +97,7 @@ if (isset($_POST['submit'])) {
                 <input type="number" id="valor" name="valor" placeholder="Digite o valor" required>
             </div>
             <div class="input-wrapper">
-                <label for="promocao">Valor Promoção <span>*</span></label>
+                <label for="promocao">Promoção <span>*</span></label>
                 <input type="number" id="promocao" name="promocao" placeholder="Digite o valor promocional" required>
             </div>
             <div class="input-wrapper">
@@ -67,22 +105,12 @@ if (isset($_POST['submit'])) {
                 <input type="text" id="tamanho" name="tamanho" placeholder="Digite o tamanho" required>
             </div>
             <div class="input-wrapper">
-                <label for="categoria">Categoria <span>*</span></label>
-                <select name="categoria" id="categoria" required>
-                    <option value="" disabled selected>Selecione a categoria</option>
-                    <option value=1>Vestido</option>
-                    <option value=2>Camiseta</option>
-                    <option value=3>Shorts</option>
-                    <option value=4>Moda Íntima</option>
-                </select>
-            </div>
-            <div class="input-wrapper">
                 <label for="imagem">Imagem <span>*</span></label>
                 <input type="file" id="imagem" name="imagem" required>
             </div>
-            <br><br>
-            <input type="submit" name="submit" id="submit" value="Cadastrar Produto">
+            <button type="submit" name="submit">Enviar</button>
         </form>
     </main>
+    <footer id="footer"></footer>
 </body>
 </html>
