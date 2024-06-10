@@ -6,6 +6,7 @@ if (isset($_POST['submit'])) {
     $valor = mysqli_real_escape_string($conexao, $_POST['valor']);
     $promocao = mysqli_real_escape_string($conexao, $_POST['promocao']);
     $tamanho = mysqli_real_escape_string($conexao, $_POST['tamanho']);
+    $categoria = mysqli_real_escape_string($conexao, $_POST['categoria']);
     $imagem = $_FILES['imagem']['name'];
     $target_dir = "../uploads/";
     $target_file = $target_dir . basename($imagem);
@@ -13,7 +14,7 @@ if (isset($_POST['submit'])) {
 
     // Verificar se o arquivo é uma imagem
     $check = getimagesize($_FILES['imagem']['tmp_name']);
-    if($check !== false) {
+    if ($check !== false) {
         $uploadOk = 1;
     } else {
         echo "O arquivo não é uma imagem.";
@@ -34,7 +35,7 @@ if (isset($_POST['submit'])) {
 
     // Permitir apenas certos formatos de arquivo
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
         echo "Desculpe, apenas arquivos JPG, JPEG, PNG & GIF são permitidos.";
         $uploadOk = 0;
     }
@@ -45,20 +46,48 @@ if (isset($_POST['submit'])) {
     // Tentar carregar o arquivo
     } else {
         if (move_uploaded_file($_FILES['imagem']['tmp_name'], $target_file)) {
-            echo "O arquivo ". htmlspecialchars(basename($_FILES['imagem']['name'])) . " foi carregado.";
+            echo "O arquivo " . htmlspecialchars(basename($_FILES['imagem']['name'])) . " foi carregado.";
+
+            // Determinar a tabela correta com base na categoria selecionada
+            switch ($categoria) {
+                case 1:
+                    $tabela = "tab_vestidos";
+                    break;
+                case 2:
+                    $tabela = "tab_camiseta";
+                    break;
+                case 3:
+                    $tabela = "tab_shorts";
+                    break;
+                case 4:
+                    $tabela = "tab_modaintima";
+                    break;
+                default:
+                    echo "Categoria inválida.";
+                    exit;
+            }
 
             // Inserir os dados no banco de dados
-            $sql = "INSERT INTO tab_vestidos (nomeproduto, valor, promocao, tamanho, imagem) VALUES ('$nome', '$valor', '$promocao', '$tamanho', '$target_file')";
+            $sql = "INSERT INTO $tabela (nomeproduto, valor, promocao, tamanho, imagem) VALUES (?, ?, ?, ?, ?)";
+            $stmt = $conexao->prepare($sql);
 
-            if ($conexao->query($sql) === TRUE) {
-                echo "Dados inseridos com sucesso!";
+            if ($stmt === false) {
+                echo "Erro na preparação da consulta: " . $conexao->error;
             } else {
-                echo "Erro ao inserir dados: " . $conexao->error;
+                $stmt->bind_param("sssss", $nome, $valor, $promocao, $tamanho, $target_file);
+                if ($stmt->execute()) {
+                    echo "Dados inseridos com sucesso!";
+                } else {
+                    echo "Erro ao inserir dados: " . $stmt->error;
+                }
+                $stmt->close();
             }
         } else {
             echo "Desculpe, houve um erro ao carregar seu arquivo.";
         }
     }
+
+    $conexao->close();
 }
 ?>
 <!DOCTYPE html>
@@ -108,10 +137,10 @@ if (isset($_POST['submit'])) {
                 <label for="categoria">Categoria <span>*</span></label>
                 <select name="categoria" id="categoria" required>
                     <option value="" disabled selected>Selecione a categoria</option>
-                    <option value=1>Vestido</option>
-                    <option value=2>Camiseta</option>
-                    <option value=3>Shorts</option>
-                    <option value=4>Moda Íntima</option>
+                    <option value="1">Vestido</option>
+                    <option value="2">Camiseta</option>
+                    <option value="3">Shorts</option>
+                    <option value="4">Moda Íntima</option>
                 </select>
             </div>
             <div class="input-wrapper">

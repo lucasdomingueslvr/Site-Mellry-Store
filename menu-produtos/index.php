@@ -15,7 +15,7 @@ $sql_shorts = "SELECT id_shorts, valor, promocao, nomeproduto, tamanho, imagem F
 $result_shorts = $conexao->query($sql_shorts);
 
 // Consulta para camisetas
-$sql_camisetas = "SELECT id_camisetas, valor, promocao, nomeproduto, tamanho, imagem FROM tab_camisetas";
+$sql_camisetas = "SELECT id_camiseta, valor, promocao, nomeproduto, tamanho, imagem FROM tab_camiseta";
 $result_camisetas = $conexao->query($sql_camisetas);
 
 $sql = "SELECT id_vestidos, valor, promocao, nomeproduto, tamanho, imagem FROM tab_vestidos";
@@ -79,7 +79,7 @@ $result = $conexao->query($sql);
             displayProducts($result_vestidos, "Vestidos", "id_vestidos");
             displayProducts($result_modaintima, "Moda Íntima", "id_modaintima");
             displayProducts($result_shorts, "Shorts", "id_shorts");
-            displayProducts($result_camisetas, "Camisetas", "id_camisetas");
+            displayProducts($result_camisetas, "Camisetas", "id_camiseta");
             ?>
         </div>
     </main>
