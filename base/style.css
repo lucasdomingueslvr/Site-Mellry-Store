@@ -38,6 +38,10 @@ body{
     height: 5rem;
 }
 
+.header-nav2 img{
+    height: 5rem;
+}
+
 .header-nav1{
     display: flex;
     flex-direction: column;
@@ -107,12 +111,12 @@ body{
         padding-left: 3rem;
     }
     
-    #header img{
+    #header .img{
         height: 12rem;
-        margin-left: 3rem;
+        margin-left: 3rem;  
     }
-
-        #footer{
+    
+    #footer{
         margin-top: auto;
         min-height: 8rem;
         
