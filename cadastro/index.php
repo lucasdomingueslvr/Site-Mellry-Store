@@ -79,6 +79,7 @@ if(isset($_SESSION['message'])) {
                 id="name" 
                 name="name"
                 placeholder="Digite seu nome"
+                autocomplete="off"
                 required
                 >
             </div>
@@ -88,6 +89,7 @@ if(isset($_SESSION['message'])) {
                 type="date" 
                 id="born-date"
                 name="born-date"
+                autocomplete="off"
                 required
                 >
             </div>
@@ -98,6 +100,7 @@ if(isset($_SESSION['message'])) {
                 id="email"
                 name="email"
                 placeholder="exemplo@gmail.com"
+                autocomplete="off"
                 required
                 >
             </div>
@@ -108,6 +111,7 @@ if(isset($_SESSION['message'])) {
                 id="password"
                 name="password"
                 placeholder="********"
+                autocomplete="off"
                 required
                 >
             </div>
@@ -118,6 +122,7 @@ if(isset($_SESSION['message'])) {
                 id="password2"
                 name="password2"
                 placeholder="********"
+                autocomplete="off"
                 required
                 >
             </div>
@@ -128,6 +133,7 @@ if(isset($_SESSION['message'])) {
                 id="tel-number"
                 name="tel-number" 
                 placeholder="(XX) XXXXX-XXXX"
+                autocomplete="off"
                 required
                 >
             </div>

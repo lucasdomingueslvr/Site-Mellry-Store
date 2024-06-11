@@ -119,19 +119,19 @@ if (isset($_POST['submit'])) {
             <h2>Cadastro de Produto</h2>
             <div class="input-wrapper">
                 <label for="nome">Nome <span>*</span></label>
-                <input type="text" id="nome" name="nome" placeholder="Digite o nome do produto" required>
+                <input type="text" id="nome" name="nome" placeholder="Digite o nome do produto" autocomplete="off" required>
             </div>
             <div class="input-wrapper">
                 <label for="valor">Valor <span>*</span></label>
-                <input type="number" id="valor" name="valor" placeholder="Digite o valor" required>
+                <input type="number" id="valor" name="valor" placeholder="Digite o valor" autocomplete="off" required>
             </div>
             <div class="input-wrapper">
                 <label for="promocao">Promoção <span>*</span></label>
-                <input type="number" id="promocao" name="promocao" placeholder="Digite o valor promocional" required>
+                <input type="number" id="promocao" name="promocao" placeholder="Digite o valor promocional" autocomplete="off" required>
             </div>
             <div class="input-wrapper">
                 <label for="tamanho">Tamanho <span>*</span></label>
-                <input type="text" id="tamanho" name="tamanho" placeholder="Digite o tamanho" required>
+                <input type="text" id="tamanho" name="tamanho" placeholder="Digite o tamanho" autocomplete="off" required>
             </div>
             <div class="input-wrapper">
                 <label for="categoria">Categoria <span>*</span></label>

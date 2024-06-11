@@ -77,11 +77,11 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                 <h2>Já possuo uma conta</h2>
                 <div class="input-wrapper">
                     <label for="email-login-input">Email</label>
-                    <input type="email" name="email" id="email-login-input" placeholder="modelo@gmail.com" required />
+                    <input type="email" name="email" id="email-login-input" placeholder="modelo@gmail.com" autocomplete="off" required />
                 </div>
                 <div class="input-wrapper">
                     <label for="password-login-input">Senha</label>
-                    <input type="password" name="password" id="password-login-input" placeholder="********" required />
+                    <input type="password" name="password" id="password-login-input" placeholder="********" autocomplete="off" required />
                 </div>
                 <button type="submit" name="login" id="bnt-login">LOGIN</button>
             <?php
