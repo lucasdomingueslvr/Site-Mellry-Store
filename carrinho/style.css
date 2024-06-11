@@ -17,6 +17,7 @@ h2{
     display: flex;
     margin-left: 4rem;
     margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .cabecalho-carrinho button{
@@ -136,6 +137,7 @@ h2{
         display: flex;
         margin-left: 4rem;
         margin-top: 2rem;
+        margin-bottom: 2rem;
     }
     
     .cabecalho-carrinho button{
@@ -153,6 +155,7 @@ h2{
         color: red;
         font-size: 1.6rem;
         font-family: "Belgrano", sans-serif;
+
     }
 }
 .container{

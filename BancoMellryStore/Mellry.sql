@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `bdmellrystore` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `bdmellrystore`;
--- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: bdmellrystore
 -- ------------------------------------------------------
--- Server version	8.0.37
+-- Server version	8.0.35
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -89,7 +89,7 @@ CREATE TABLE `tab_camiseta` (
   `tamanho` varchar(10) NOT NULL,
   `imagem` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_camiseta`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,6 +98,7 @@ CREATE TABLE `tab_camiseta` (
 
 LOCK TABLES `tab_camiseta` WRITE;
 /*!40000 ALTER TABLE `tab_camiseta` DISABLE KEYS */;
+INSERT INTO `tab_camiseta` VALUES (1,'Camiseta Verde e Branco',30,27,'Medio','../uploads/image 6 (8).png'),(2,'Camiseta T-shirt',38,32,'Pequeno','../uploads/image 6 (7).png'),(3,'Camiseta Asics Manga Curta',34,31,'Grande','../uploads/image 6 (6).png'),(4,'Camiseta Coração Floresta Branca',40,36,'Medio','../uploads/image 6 (5).png');
 /*!40000 ALTER TABLE `tab_camiseta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,7 +117,7 @@ CREATE TABLE `tab_modaintima` (
   `tamanho` varchar(10) NOT NULL,
   `imagem` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_modaintima`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,6 +126,7 @@ CREATE TABLE `tab_modaintima` (
 
 LOCK TABLES `tab_modaintima` WRITE;
 /*!40000 ALTER TABLE `tab_modaintima` DISABLE KEYS */;
+INSERT INTO `tab_modaintima` VALUES (1,'Calcinha e Sutiã Agua Marinho',30,25,'Pequeno','../uploads/image 6 (12).png'),(2,'Kit 3 Sutiãs Algodão',45,40,'Medio','../uploads/image 6 (11).png'),(3,'Sutiã Verde',25,20,'Pequeno','../uploads/image 6 (10).png'),(4,'Calcinha e Sutiã Confort Plus',30,23,'Grande','../uploads/image 6 (9).png');
 /*!40000 ALTER TABLE `tab_modaintima` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,7 +145,7 @@ CREATE TABLE `tab_shorts` (
   `tamanho` varchar(10) NOT NULL,
   `imagem` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_shorts`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,7 +154,7 @@ CREATE TABLE `tab_shorts` (
 
 LOCK TABLES `tab_shorts` WRITE;
 /*!40000 ALTER TABLE `tab_shorts` DISABLE KEYS */;
-INSERT INTO `tab_shorts` VALUES (1,'Short Jeans Baggy Carpinteiro',89,59,'Medio','../uploads/short_baggy_jeans_carpinteiro.png'),(2,'Short Preto Academia',49,34,'Pequeno','../uploads/short_preto_academia.jpg');
+INSERT INTO `tab_shorts` VALUES (1,'Short Jeans Baggy Carpinteiro',89,59,'Medio','../uploads/short_baggy_jeans_carpinteiro.png'),(2,'Short Preto Academia',49,34,'Pequeno','../uploads/short_preto_academia.jpg'),(3,'Short Azul Claro',45,38,'Medio','../uploads/image 6 (1).png'),(4,'Short Liso Marrom',26,24,'Grande','../uploads/image 6 (2).png');
 /*!40000 ALTER TABLE `tab_shorts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -171,7 +173,7 @@ CREATE TABLE `tab_vestidos` (
   `tamanho` varchar(10) NOT NULL,
   `imagem` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_vestidos`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -180,7 +182,7 @@ CREATE TABLE `tab_vestidos` (
 
 LOCK TABLES `tab_vestidos` WRITE;
 /*!40000 ALTER TABLE `tab_vestidos` DISABLE KEYS */;
-INSERT INTO `tab_vestidos` VALUES (5,150,120,'Vestido Preto','Medio','../uploads/vestido_preto.jpg'),(6,100,69,'Vestido Florido','Pequeno','../uploads/vestido_florido.jpg');
+INSERT INTO `tab_vestidos` VALUES (5,150,120,'Vestido Preto','Medio','../uploads/vestido_preto.jpg'),(6,100,69,'Vestido Florido','Pequeno','../uploads/vestido_florido.jpg'),(7,150,120,'Vestido Vinho','Medio','../uploads/image 6 (4).png'),(8,220,180,'Vestido Pink','Grande','../uploads/image 6 (3).png');
 /*!40000 ALTER TABLE `tab_vestidos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -193,4 +195,5 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-11 15:25:13
+-- Dump completed on 2024-06-11 17:58:08
+
