@@ -1,7 +1,6 @@
 <?php
 include_once('../Back/config.php');
 
-
 // Consulta para vestidos
 $sql_vestidos = "SELECT id_vestidos, valor, promocao, nomeproduto, tamanho, imagem FROM tab_vestidos";
 $result_vestidos = $conexao->query($sql_vestidos);
@@ -17,9 +16,6 @@ $result_shorts = $conexao->query($sql_shorts);
 // Consulta para camisetas
 $sql_camisetas = "SELECT id_camiseta, valor, promocao, nomeproduto, tamanho, imagem FROM tab_camiseta";
 $result_camisetas = $conexao->query($sql_camisetas);
-
-$sql = "SELECT id_vestidos, valor, promocao, nomeproduto, tamanho, imagem FROM tab_vestidos";
-$result = $conexao->query($sql);
 
 ?>
 <!DOCTYPE html>
@@ -52,7 +48,7 @@ $result = $conexao->query($sql);
         <div class="produtos">
             <?php
             // Função para exibir produtos
-            function displayProducts($result, $title, $ids) {
+            function displayProducts($result, $title, $table, $ids) {
                 if ($result->num_rows > 0) {
                     echo "<h2>$title</h2>";
                     echo '<div class="container">';
@@ -64,7 +60,7 @@ $result = $conexao->query($sql);
                         echo '<span>R$' . number_format($row["valor"], 2, ',', '.') . '</span>';
                         echo '<strong>R$' . number_format($row["promocao"], 2, ',', '.') . '</strong>';
                         echo '<div class="buttons">';
-                        echo '<button class="btn-buy"><a href="../details/product_details.php?id=' . $row[$ids] . '">Comprar</a></button>';
+                        echo '<button class="btn-buy"><a href="../details/product_details.php?id=' . $row[$ids] . '&table=' . $table . '">Comprar</a></button>';
                         echo '</div>';
                         echo '</div>';
                     }
@@ -76,13 +72,13 @@ $result = $conexao->query($sql);
             }
 
             // Exibir produtos de cada tabela
-            displayProducts($result_vestidos, "Vestidos", "id_vestidos");
-            displayProducts($result_modaintima, "Moda Íntima", "id_modaintima");
-            displayProducts($result_shorts, "Shorts", "id_shorts");
-            displayProducts($result_camisetas, "Camisetas", "id_camiseta");
+            displayProducts($result_vestidos, "Vestidos", "tab_vestidos", "id_vestidos");
+            displayProducts($result_modaintima, "Moda Íntima", "tab_modaintima", "id_modaintima");
+            displayProducts($result_shorts, "Shorts", "tab_shorts", "id_shorts");
+            displayProducts($result_camisetas, "Camisetas", "tab_camiseta", "id_camiseta");
             ?>
         </div>
     </main>
-        <footer id="footer"></footer>
+    <footer id="footer"></footer>
 </body>
 </html>
