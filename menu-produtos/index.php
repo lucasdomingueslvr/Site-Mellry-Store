@@ -79,6 +79,6 @@ $result_camisetas = $conexao->query($sql_camisetas);
             ?>
         </div>
     </main>
-    <footer id="footer"></footer>
+    <footer id="footer" style="margin-top: 2rem;"></footer>
 </body>
 </html>
