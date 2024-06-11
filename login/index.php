@@ -69,11 +69,6 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     <header id="header"></header>
     <main>
         <div class="container">
-            <?php
-            if (isset($login_error)) {
-                echo "<p style='color:red;'>$login_error</p>";
-            }
-            ?>
             <form method="POST" action="">
                 <h2>Já possuo uma conta</h2>
                 <div class="input-wrapper">
@@ -84,8 +79,12 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                     <label for="password-login-input">Senha</label>
                     <input type="password" name="password" id="password-login-input" placeholder="********" required />
                 </div>
-                <a id="forgot-password" href="#">Esqueci minha senha</a>
                 <button type="submit" name="login" id="bnt-login">LOGIN</button>
+            <?php
+            if (isset($login_error)) {
+                echo "<p style='color:red;'>$login_error</p>";
+            }
+            ?>
             </form>
             <div class="create-account">
                 <h2>Quero criar uma conta</h2>
