@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     $password = $_POST['password'];
 
     // Consulta para verificar o usuário
-    $sql = "SELECT id_cliente, email, senha FROM cadastro WHERE email = ? AND senha = ?";
+    $sql = "SELECT id_cliente, nome, email, senha FROM cadastro WHERE email = ? AND senha = ?";
     $stmt = $conexao->prepare($sql);
     $stmt->bind_param("ss", $email, $password);
     $stmt->execute();
@@ -29,6 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
         $_SESSION['loggedin'] = true;
         $_SESSION['email'] = $user['email'];
         $_SESSION['id_cliente'] = $user['id_cliente'];
+        
+        // Redirecionar para a página do menu de produtos
+        header("Location: ../menu-produtos/index.php");
+        exit;
     } else {
         $login_error = "Email ou senha incorretos.";
     }
@@ -38,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
 
 // Proteção da página
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
-    echo "<h2>Bem-vindo, " . htmlspecialchars($_SESSION['email']) . "</h2>";
+    echo '<a href="menu.php">Ir para a página de menu</a>';
     echo '<a href="?action=logout">Logout</a>';
     echo '<p>ID do Cliente: ' . htmlspecialchars($_SESSION['id_cliente']) . '</p>';
     $conexao->close();
