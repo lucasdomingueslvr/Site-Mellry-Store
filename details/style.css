@@ -62,6 +62,11 @@ input{
     font-size: 1.2rem;
 }
 
+.wpp-button a{
+    text-decoration: none;
+    color: var(--green-color);
+}
+
 
 button{
     border-radius: 1rem;

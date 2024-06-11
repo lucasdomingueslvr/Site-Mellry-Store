@@ -48,6 +48,9 @@ $valid_tables = [
 
                 if ($result->num_rows > 0) {
                     $row = $result->fetch_assoc();
+                    $produto_nome = urlencode($row["nomeproduto"]);
+                    $whatsapp_url = "https://api.whatsapp.com/send?phone=553491211727&text=Olá, estou interessado no produto: $produto_nome";
+
                     echo '<div class="produto">';
                     echo '<img src="' . $row["imagem"] . '" id="main-img">';
                     echo '<div class="descricao-produto">';
@@ -56,7 +59,7 @@ $valid_tables = [
                     echo '<strong>R$' . number_format($row["promocao"], 2, ',', '.') . '</strong>';
                     echo '<form action="">';
                     echo '<div class="buttons">';
-                    echo '<button class="wpp-button"> Comprar <img src="../assets/Whatsapp.png" alt="logo do Whatsapp"></button>';
+                    echo '<button class="wpp-button"><a href="' . $whatsapp_url . '"  target="_blank">Comprar </a> <img src="../assets/Whatsapp.png" alt="logo do Whatsapp"></button>';
                     echo '<button><a href="../carrinho/index.php"><img src="../assets/car.png"></a></button>';
                     echo '</div>';
                     echo '</form>';
