@@ -25,7 +25,7 @@
     <main>
         <h1>MELLRY STORE</h1>
         <div class="paragraph">
-            <img src="../assets/Vector.png" alt="">
+            <img src="../assets/sobre1.jpg" alt="">
             <p>
                 Bem-vindos à Mellry Store, sua boutique de moda favorita em Patos de Minas desde 2020! Estamos comprometidos em oferecer uma experiência de compra excepcional, onde cada visita é uma oportunidade de descobrir novas tendências e expressar sua individualidade através do estilo.
             </p>
@@ -34,10 +34,10 @@
             <p>
                 Desde o nosso início em 2020, a Mellry Store tem sido um destino confiável para as mulheres que buscam moda de qualidade e estilo exclusivo. Nossa loja foi fundada com a paixão por oferecer uma seleção cuidadosamente curada de roupas e acessórios que refletem as últimas tendências da moda, enquanto também incorporam um toque de autenticidade e elegância atemporal.
             </p>
-            <img src="../assets/Vector.png" alt="">
+            <img src="../assets/sobre2.jpg" alt="">
         </div>
         <div class="paragraph">
-            <img src="../assets/Vector.png" alt="">
+            <img src="../assets/sobre3.jpg" alt="">
             <p>
                 Na Mellry Store, você encontrará uma variedade de peças cuidadosamente selecionadas, desde roupas elegantes para o dia a dia até vestidos deslumbrantes para ocasiões especiais. Nossa coleção é atualizada regularmente para garantir que você sempre tenha acesso às últimas novidades da moda. Além disso, oferecemos uma variedade de tamanhos para atender às necessidades de todas as mulheres.
             </p>
@@ -46,10 +46,10 @@
             <p>
                 Desde o nosso início em 2020, a Mellry Store tem sido um destino confiável para as mulheres que buscam moda de qualidade e estilo exclusivo. Nossa loja foi fundada com a paixão por oferecer uma seleção cuidadosamente curada de roupas e acessórios que refletem as últimas tendências da moda, enquanto também incorporam um toque de autenticidade e elegância atemporal.
             </p>
-            <img src="../assets/Vector.png" alt=""> 
+            <img src="../assets/sobre4.jpg" alt=""> 
         </div>
         <div class="paragraph">
-            <img src="../assets/Vector.png" alt=""> 
+            <img src="../assets/sobre5.jpg" alt=""> 
             <p>
                 Localizada no coração de Patos de Minas, nossa loja é facilmente acessível para todos os fashionistas locais que buscam inspiração e estilo.
             </p>
@@ -58,7 +58,7 @@
             <p>
                 Na Mellry Store, a moda é mais do que apenas roupas - é uma forma de expressão pessoal. Venha nos visitar e descubra como podemos ajudá-la a encontrar o seu estilo único. Estamos ansiosos para recebê-la em nossa loja e ajudá-la a criar looks que a fazem sentir-se verdadeiramente deslumbrante.
             </p>
-            <img src="../assets/Vector.png" alt="">
+            <img src="../assets/Background_HomePage.png" alt="">
         </div>
     </main>
     <footer id="footer"></footer>
