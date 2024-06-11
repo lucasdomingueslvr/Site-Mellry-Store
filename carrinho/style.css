@@ -154,4 +154,9 @@ h2{
         font-size: 1.6rem;
         font-family: "Belgrano", sans-serif;
     }
-} 
+}
+.container{
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}

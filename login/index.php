@@ -20,6 +20,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     // Consulta para verificar o usuário
     $sql = "SELECT id_cliente, nome, email, senha FROM cadastro WHERE email = ? AND senha = ?";
     $stmt = $conexao->prepare($sql);
+
+    if ($stmt === false) {
+        die('Prepare failed: ' . htmlspecialchars($conexao->error));
+    }
+
     $stmt->bind_param("ss", $email, $password);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -29,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
         $_SESSION['loggedin'] = true;
         $_SESSION['email'] = $user['email'];
         $_SESSION['id_cliente'] = $user['id_cliente'];
-        
+
         // Redirecionar para a página do menu de produtos
         header("Location: ../menu-produtos/index.php");
         exit;
@@ -84,11 +89,11 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                     <input type="password" name="password" id="password-login-input" placeholder="********" autocomplete="off" required />
                 </div>
                 <button type="submit" name="login" id="bnt-login">LOGIN</button>
-            <?php
-            if (isset($login_error)) {
-                echo "<p style='color:red;'>$login_error</p>";
-            }
-            ?>
+                <?php
+                if (isset($login_error)) {
+                    echo "<p style='color:red;'>$login_error</p>";
+                }
+                ?>
             </form>
             <div class="create-account">
                 <h2>Quero criar uma conta</h2>
