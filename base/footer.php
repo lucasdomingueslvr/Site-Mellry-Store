@@ -19,20 +19,20 @@
                 <p>Contatos </p>
                 <a href="mailto:mellrystore@gmail.com">mellrystore@gmail.com</a>
                 <a href="https://instagram.com/@mellry.store">@mellry.store</a>
-                <a href="#">+55 (34) 4002-8922</a>
+                <a href="https://wa.me/553497288709">+55 (34) 97288709</a>
             </div>
         
             <div class="about">
                 <p>Sobre nós</p>
-                <a href="#">Sobre a Mellry Store</a>
-                <a href="#">Políticas da empresa</a>
+                <a href="../sobre/index.php">Sobre a Mellry Store</a>
+                <a>Políticas da empresa</a>
             </div>
 
             <div class="formas-pagamento">
                 <p>Formas de pagamento</p>
-                <a href="#">Pix</a>
-                <a href="#">Cartão de crédito e débito</a>
-                <a href="#">Boleto Bancário</a>
+                <a>Pix</a>
+                <a>Cartão de crédito e débito</a>
+                <a>Boleto Bancário</a>
             </div>
         </nav>
     </footer>
