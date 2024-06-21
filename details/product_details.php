@@ -38,10 +38,7 @@ $valid_tables = [
     <main>
         <?php
 
-        // Verifica se o usuário está logado
-        if (!isset($_SESSION['loggedin'])) {
-            die("Você precisa estar logado para adicionar produtos ao carrinho.");
-        }
+        
 
         if (isset($_GET['id']) && isset($_GET['table'])) {
             $id = intval($_GET['id']);
